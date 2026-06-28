@@ -7,10 +7,9 @@ body {
     height: 100vh;
     background-color: #ffffff;
     font-family: Arial, sans-serif;
-    position: fixed;
-    top: 0;
-    bottom: 0;
+    /* Let the layout position naturally; fixed can cause overflow on small screens */
 }
+
 
 .top-bar {
     display: flex;
@@ -30,34 +29,54 @@ body {
 }
 
 .centre-block {
-    display: grid;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 100%;
     height: 100vh;
+    gap: 0;
 }
 
 h1 {
-    font-size: 60pt;
     color: #000000;
     text-align: center;
-    margin-bottom: 20px;
+    margin: 0;
+    font-size: clamp(2rem, 6vw, 6rem);
 }
 
+
+
+
 .search-box {
-    width: 100%;
-    align-items: center;
-    justify-content: center;
+    width: min(70vw, 800px);
     display: flex;
-    transform: translateY(-150px)
+    justify-content: center;
+    align-items: center;
+    margin: 0;
 }
 
 .search-bar {
-    width: 1000px;
-    height: 50px;
+    width: 100%;
+    height: clamp(40px, 6vh, 56px);
     border-radius: 50px;
-    margin: 10px;
     border: 1px solid #000000;
     padding: 0 20px;
-    font-size: 18pt;
+    font-size: clamp(1rem, 2.2vw, 1.25rem);
 }
+
+.bottom-bar {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+
+.bottom-right {
+    padding-right: 30px;
+}
+
